@@ -61,8 +61,15 @@ resource "aws_instance" "web" {
   key_name               = var.key_name
 
   user_data = data.template_file.user_data.rendered
+   user_data_replace_on_change = true
+
+  lifecycle {
+    create_before_destroy = true
+  }
 
   tags = {
     Name = "${var.project_name}-server"
+    Version = timestamp()   # THIS forces EC2 recreation every apply
+
   }
 }
