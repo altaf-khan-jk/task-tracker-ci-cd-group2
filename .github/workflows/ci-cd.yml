@@ -52,6 +52,4 @@ jobs:
 
       - name: Terraform Apply
         working-directory: infra
-        run: terraform apply -auto-approve \
-          -var="key_name=${{ secrets.EC2_KEY_NAME }}" \
-          -var="github_repo_url=https://github.com/${{ github.repository }}.git"
+        run: terraform apply -auto-approve
