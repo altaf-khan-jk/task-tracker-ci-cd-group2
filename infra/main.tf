@@ -16,6 +16,7 @@ data "template_file" "user_data" {
   }
 }
 
+
 resource "aws_security_group" "web_sg" {
   name = "${var.project_name}-sg"
 
