@@ -3,20 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <title>Task Tracker</title>
-  <style>
-    body { font-family: Arial; max-width: 600px; margin: 30px auto; }
-    ul { padding: 0; list-style: none; }
-    li { padding: 10px; border-bottom: 1px solid #ccc; display: flex; justify-content: space-between; }
-    .completed { text-decoration: line-through; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Task Tracker</h1>
-  <form id="task-form">
-    <input id="task-title" placeholder="Task name..." required />
-    <button>Add</button>
-  </form>
-  <ul id="tasks"></ul>
+  <main class="app">
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-logo">T</div>
+        <div>
+          <h1>Task Tracker</h1>
+          <p>Plan, track and complete your daily work clearly.</p>
+        </div>
+      </div>
+      <div class="app-badges">
+        <span class="badge badge-live">
+          <span class="dot"></span>
+          Live on AWS · CI/CD
+        </span>
+        <span class="badge badge-meta">
+          Node · Express · DB · Terraform · GitHub Actions
+        </span>
+      </div>
+    </header>
+
+    <section class="layout">
+      <!-- LEFT: form + tasks -->
+      <section class="card card-main">
+        <div class="card-header">
+          <div>
+            <h2>My Tasks</h2>
+            <p>Add a task, complete it, or remove it. Data is persisted in the backend.</p>
+          </div>
+        </div>
+
+        <form id="task-form" autocomplete="off" class="task-form">
+          <input
+            id="task-title"
+            type="text"
+            placeholder="e.g. Finish report, review PRs, prepare stand-up notes…"
+            required
+          />
+          <button type="submit" class="btn btn-primary">
+            <span>＋</span> Add Task
+          </button>
+        </form>
+
+        <ul id="tasks" class="task-list"></ul>
+      </section>
+
+      <!-- RIGHT: simple summary panel (optional, purely UI) -->
+      <aside class="card card-side">
+        <div class="card-header">
+          <div>
+            <h2>Board Overview</h2>
+            <p>Use this panel while presenting your CI/CD and monitoring demo.</p>
+          </div>
+        </div>
+
+        <ul class="info-list">
+          <li>
+            <h3>How to demo</h3>
+            <p>
+              Add a few tasks, complete some, then redeploy via your pipeline and show that
+              the tasks are still there after restart.
+            </p>
+          </li>
+          <li>
+            <h3>Monitoring</h3>
+            <p>
+              Generate a few requests (add / delete tasks), then show the logs in CloudWatch
+              and metrics on the EC2 instance page.
+            </p>
+          </li>
+          <li>
+            <h3>CI/CD story</h3>
+            <p>
+              Make a small UI change in this page, push to <strong>main</strong>,
+              and walk through the pipeline stages: build, test, deploy.
+            </p>
+          </li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
   <script src="main.js"></script>
 </body>
 </html>
