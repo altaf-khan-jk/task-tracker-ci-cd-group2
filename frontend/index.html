@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Task Tracker</title>
+  <style>
+    body { font-family: Arial; max-width: 600px; margin: 30px auto; }
+    ul { padding: 0; list-style: none; }
+    li { padding: 10px; border-bottom: 1px solid #ccc; display: flex; justify-content: space-between; }
+    .completed { text-decoration: line-through; }
+  </style>
+</head>
+<body>
+  <h1>Task Tracker</h1>
+  <form id="task-form">
+    <input id="task-title" placeholder="Task name..." required />
+    <button>Add</button>
+  </form>
+  <ul id="tasks"></ul>
+  <script src="main.js"></script>
+</body>
+</html>
