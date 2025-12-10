@@ -50,9 +50,9 @@ jobs:
         working-directory: infra
         run: terraform init
 
-      #- name: Terraform Apply
-      #  working-directory: infra
-      #  run: terraform apply -auto-approve
+      - name: Terraform Apply
+        working-directory: infra
+        run: terraform apply -auto-approve
 
       - name: Terraform Destroy
         working-directory: infra
